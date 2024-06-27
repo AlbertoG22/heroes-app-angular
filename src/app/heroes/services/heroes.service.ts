@@ -22,11 +22,17 @@ export class HeroesService {
     }
 
     getSuggestions(query: string): Observable<Hero[]> {
-        return this.http.get<Hero[]>(`${this.baseUrl}/heroes?q=${ query }&_limit=6`);
+        return this.http.get<Hero[]>(`${ this.baseUrl }/heroes?q=${ query }&_limit=6`);
     }
 
     addHero( hero: Hero ): Observable<Hero> {
-        return this.http.post<Hero>(`${this.baseUrl}/heroes`, hero);
+        return this.http.post<Hero>(`${ this.baseUrl }/heroes`, hero);
+    }
+
+    updateHero( hero: Hero ): Observable<Hero> {
+        if( !hero.id ) throw Error('Hero id is required');
+
+        return this.http.patch<Hero>(`${ this.baseUrl }/heroes/${ hero.id }`, hero);
     }
     
 }
