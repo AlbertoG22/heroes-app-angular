@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, of } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 import { Hero } from '../interfaces/hero.interface';
 import { environments } from '../../../environments/environments';
 
@@ -33,6 +33,16 @@ export class HeroesService {
         if( !hero.id ) throw Error('Hero id is required');
 
         return this.http.patch<Hero>(`${ this.baseUrl }/heroes/${ hero.id }`, hero);
+    }
+
+    deleteHeroById( id: string ): Observable<boolean> { // al final el observable nos debe devolver un boolean
+        
+        // llamar a este endpoint retorna {} si se borró o 'error 404' si no se borró (no encontró el id o hubo error de conexión)
+        return this.http.delete<Hero>(`${ this.baseUrl }/heroes/${ id }`)
+            .pipe(
+                catchError( err => of(false) ), // si hay error, el "of" retorna un nuevo obsrvable con el valor de false
+                map( resp => true ) // si se llega a este es porque se borró, y la respuesta es true
+            );
     }
     
 }
