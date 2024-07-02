@@ -40,8 +40,8 @@ export class HeroesService {
         // llamar a este endpoint retorna {} si se borró o 'error 404' si no se borró (no encontró el id o hubo error de conexión)
         return this.http.delete<Hero>(`${ this.baseUrl }/heroes/${ id }`)
             .pipe(
+                map( resp => true ), // si se llega a este es porque se borró, y la respuesta es true
                 catchError( err => of(false) ), // si hay error, el "of" retorna un nuevo obsrvable con el valor de false
-                map( resp => true ) // si se llega a este es porque se borró, y la respuesta es true
             );
     }
     
