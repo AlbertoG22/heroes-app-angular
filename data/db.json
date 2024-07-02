@@ -2,19 +2,34 @@
   "users": [
     {
       "id": 1,
-      "usuario": "John Doe",
+      "user": "John Doe",
       "email": "john.due@gmail.com"
     }
   ],
   "heroes": [
+    {
+      "id": "dc-batman",
+      "superhero": "Batman",
+      "publisher": "DC Comics",
+      "alter_ego": "Bruce Wayne",
+      "first_appearance": "Detective Comics #27",
+      "characters": "Bruce Wayne"
+    },
+    {
+      "id": "dc-superman",
+      "superhero": "Superman",
+      "publisher": "DC Comics",
+      "alter_ego": "Kal-El",
+      "first_appearance": "Action Comics #1",
+      "characters": "Kal-El"
+    },
     {
       "id": "dc-flash",
       "superhero": "Flash",
       "publisher": "DC Comics",
       "alter_ego": "Jay Garrick",
       "first_appearance": "Flash Comics #1",
-      "characters": "Jay Garrick, Barry Allen, Wally West, Bart Allen",
-      "alt_img": ""
+      "characters": "Jay Garrick, Barry Allen, Wally West, Bart Allen"
     },
     {
       "id": "dc-green",
@@ -151,15 +166,6 @@
       "alter_ego": "Norrin Radd",
       "first_appearance": "The Fantastic Four #48",
       "characters": "Norrin Radd"
-    },
-    {
-      "id": "3e_M1NO",
-      "superhero": "Alberto García",
-      "publisher": "Marvel Comics",
-      "alter_ego": "Beto",
-      "first_appearance": "enero 1999",
-      "characters": "Sergio",
-      "alt_img": "https://img.freepik.com/foto-gratis/retrato-hombre-estilo-dibujos-animados_23-2151134132.jpg?size=626&ext=jpg&ga=GA1.1.672697106.1719446400&semt=ais_user"
     }
   ]
 }
